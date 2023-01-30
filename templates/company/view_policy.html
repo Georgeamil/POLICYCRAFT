@@ -1,0 +1,107 @@
+
+{% extends 'com_header_footer.html' %}
+{% block view_policy %}
+{% load static %}
+
+{% if msg %}
+<script>
+alert("{{msg}}");
+</script>
+{% endif %}
+<div class="banner-w3ltext about-w3bnr">
+    <div class="container">
+        <h1 class="text-white text-center">
+            <a href="/admin_home">Home</a> / Policy List</h1>
+    </div>
+  </div>
+	<!-- contact -->
+	<section class="wthree-row w3-contact py-5" style="background-color: white;">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="text-center mb-lg-5 mb-4">
+				<h3 class="tittle mb-2"> Policy List</h3>
+				
+			</div>
+			<div class="row contact-form py-3" >
+				<!-- contact map -->
+				<div class="col-lg-6 wthree-form-left mt-lg-0 mt-5" >
+                    <form action="#" method="POST" class="f-color" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Select Category</label>
+                            <select name ="category" class="contact-formw3ls form-control">
+                                {% for d in data %}
+                                <option value="{{d.0}}">{{d.1}}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" name="submit" class="btn submit contact-submit">Submit</button>
+
+                        </div>
+
+                    </form>
+                </div>
+			</div>
+                    
+
+
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    margin-left: 2%;
+    border: #000000;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  </style>
+<table >
+  <tr style="background:#ff3c41">
+      <th>Sl No.</th>
+      <th>Policy Name</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th>Premium</th>
+      <th>Duration</th>
+      <th>Description</th>
+      <th>Document</th>
+      <th>Payment</th>
+      <th>Remove</th>
+  </tr>
+  {% for d in data1 %}
+  <tr>
+      <td>{{d.0}}</td><td>{{d.1}}</td><td>{{d.10}}</td><td>{{d.15}}</td><td>{{d.12}}</td><td>{{d.5}}</td><td>{{d.6}}</td><td><a href="/{{d.7}}" target="_blank">Document</a></td><td>{{d.9}}</td><td><a href="/remove_policy?policy_id={{d.0}}"><img src="{% static 'images/cancel.png' %}" width="30px;" height="30px;"></a></td>  </tr>
+  {% endfor %}
+</table>
+					
+				</div>
+				<!-- //contact form -->
+			</div>
+			
+		</div>
+		
+	</section>
+	<script>
+		if ( window.history.replaceState ) {
+			window.history.replaceState( null, null, window.location.href );
+		}
+	</script>
+	<!-- //contact -->
+
+	
+
+	
+
+
+{% endblock %}
+
+
+
+

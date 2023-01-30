@@ -1,0 +1,79 @@
+
+{% extends 'admin_header_footer.html' %}
+{% block view_company %}
+{% load static %}
+
+<!-- login -->
+
+<!-- banner-bottom -->
+
+<!-- //middle section --><!-- middle section -->
+
+<!-- //middle section -->
+<!-- services -->
+
+<!-- //services -->
+
+
+<div class="banner-w3ltext about-w3bnr">
+  <div class="container">
+      <h1 class="text-white text-center">
+          <a href="/admin_home">Home</a> / Company List</h1>
+  </div>
+</div>
+
+<!-- stats section -->
+<div class="middlesection-agile py-5" style="background-color: white;">
+ 
+<div class="container-fluid py-xl-5 py-lg-3">
+    <div class="row">
+        
+       
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 75%;
+              margin-left: 10%;
+              border: #000000;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+    <table >
+            <tr style="background:#ff3c41">
+              <th>Sl No.</th>
+              <th>Company Name</th>
+              <th>Company Reg no.</th>
+              <th>Email ID</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Documents</th>
+              <th>Remove</th>
+            </tr>
+            {% for d in data %}
+            <tr>
+              <td>{{forloop.counter}}</td><td>{{d.1}}</td><td>{{d.2}}</td><td>{{d.3}}</td><td>{{d.4}}</td><td>{{d.5}}</td><td><a href="/{{d.6}}" target="_blank">View Documents</a></td><td><center><a href="/remove_com?reg_id={{d.0}}"><img src="{% static 'images/cancel.png' %}" width="30px;" height="30px;"></a></center></td>
+            </tr>
+            {% endfor %}
+          </table>
+    </div>
+</div>
+{% if msgg %}
+<center> <h6 style="color: black;">{{msgg}}</h6></center>
+ {% endif %}
+</div>
+<!-- //stats -->
+
+<!-- testimonials -->
+
+<!-- //testimonials -->
+{% endblock %}

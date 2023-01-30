@@ -1,0 +1,89 @@
+
+{% extends 'admin_header_footer.html' %}
+{% block view_user %}
+{% load static %}
+
+<!-- login -->
+
+<!-- banner-bottom -->
+
+<!-- //middle section --><!-- middle section -->
+
+<!-- //middle section -->
+<!-- services -->
+
+<!-- //services -->
+
+
+<div class="banner-w3ltext about-w3bnr">
+    <div class="container">
+        <h1 class="text-white text-center">
+            <a href="/admin_home">Home</a> / User List</h1>
+    </div>
+</div>
+<!-- stats section -->
+<div class="middlesection-agile py-5" style="background-color: white;">
+    
+<div class="container-fluid py-xl-5 py-lg-3">
+    <div class="row">
+        
+       
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 75%;
+              margin-left: 10%;
+              border: #000000;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+    <table >
+            <tr style="background:#ff3c41">
+                <th>Sl No.</th>
+                <th>User Name</th>
+                <th>Gender</th>
+                <th>Email ID</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Count</th>
+                {% comment %} <th>Status</th> {% endcomment %}
+                <th>Remove</th>
+                 <th>Block</th>
+            </tr>
+            {% comment %} {{data}} {% endcomment %}
+            {% for d in data %}
+            <tr>
+                <td>{{forloop.counter}}</td><td>{{d.1}}</td><td>{{d.5}}</td>
+                <td>{{d.2}}</td><td>{{d.3}}</td><td>{{d.4}}</td>
+                <td>{{d.13}}</td>
+                
+              
+                <td><center><a href="/remove_us?reg_id={{d.0}}"><img src="{% static 'images/cancel.png' %}" width="30px;" height="30px;"></a></center></td>
+             {% if d.13 > 2 %} 
+       <td><center><a href="/block?reg_id={{d.0}}">Block</a></center></td>
+{% endif %}
+            </tr>
+            {% endfor %}
+          </table>
+    </div>
+</div>
+{% if msgg %}
+<center> <h6 style="color: black;">{{msgg}}</h6></center>
+ {% endif %}
+</div>
+<!-- //stats -->
+
+<!-- testimonials -->
+
+<!-- //testimonials -->
+{% endblock %}

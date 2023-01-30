@@ -1,0 +1,85 @@
+
+{% extends 'com_header_footer.html' %}
+{% block pay_history %}
+{% load static %}
+
+<!-- login -->
+
+<!-- banner-bottom -->
+
+<!-- //middle section --><!-- middle section -->
+
+<!-- //middle section -->
+<!-- services -->
+
+<!-- //services -->
+
+
+<div class="banner-w3ltext about-w3bnr">
+  <div class="container">
+      <h1 class="text-white text-center">
+          <a href="/admin_home">Home</a> / Insurance Payment Status</h1>
+  </div>
+</div>
+
+<!-- stats section -->
+<div class="middlesection-agile py-5" style="background-color: white;">
+ 
+<div class="container-fluid py-xl-5 py-lg-3">
+    <div class="row">
+        
+       
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 75%;
+              margin-left: 10%;
+              border: #000000;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+            
+    <table >
+            <tr style="background:#ff3c41">
+              <th>Sl No.</th>
+              <th>Date</th>
+              <th>Amount</th>
+            </tr>
+            
+            {% if data == "" %}
+            <td><a href="/complaint?id=uid">Complaint</a></td>
+            {% endif %}
+            {% for d in data %}
+            <tr>
+              <td>{{d.0}}</td>
+              <td>{{d.1}}</td>
+              <td>{{d.2}}</td>
+           
+            </tr>
+            {% endfor %}
+            
+          </table>
+          
+    </div>
+</div>
+            {% if msgg %}
+            <label style="color: red; margin-left: 40%;"><b>{{msgg}}</b></label>
+            {% endif %}
+
+</div>
+<!-- //stats -->
+
+<!-- testimonials -->
+
+<!-- //testimonials -->
+{% endblock %}

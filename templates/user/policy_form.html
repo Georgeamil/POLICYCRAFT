@@ -1,0 +1,113 @@
+
+{% extends 'user_header_footer.html' %}
+{% block policy_form %}
+{% load static %}
+
+
+<div class="banner-w3ltext about-w3bnr">
+    <div class="container">
+        <h1 class="text-white text-center">
+            <a href="/admin_home">Home</a> / Policy Form Download</h1>
+    </div>
+  </div>
+	<!-- contact -->
+	<section class="wthree-row w3-contact py-5" style="background-color: white;">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="text-center mb-lg-5 mb-4">
+                <h3 class="tittle mb-2">Download Policy Form</h3>
+                <!-- <h5><a href="" style="color: red;">Download Form</a></h5> -->
+                
+				
+			</div>
+			<div class="row contact-form py-3">
+				<!-- contact map -->
+				<div class="col-lg-6 wthree-form-left mt-lg-0 mt-5">
+					<div class="contact-top1">
+                        <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <style>
+                        * {
+                          box-sizing: border-box;
+                        }
+                        
+                        body {
+                          font-family: Arial, Helvetica, sans-serif;
+                        }
+                        
+                        /* Float four columns side by side */
+                        .column {
+                          width: 25%;
+                          padding: 0 10px;
+                        }
+                        
+                        /* Remove extra left and right margins, due to padding */
+                        .row {margin: 0 -5px;}
+                        
+                        /* Clear floats after the columns */
+                        .row:after {
+                          content: "";
+                          display: table;
+                          clear: both;
+                        }
+                        
+                        /* Responsive columns */
+                        @media screen and (max-width: 600px) {
+                          .column {
+                            width: 100%;
+                            display: block;
+                            margin-bottom: 20px;
+                          }
+                        }
+                        
+                        /* Style the counter cards */
+                        .card {
+                          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                          padding: 16px;
+                          width: 780%;
+                          text-align: center;
+                          margin-left: 100px;
+                          background-color: #6bc1f3;
+                        }
+                        </style>
+                        
+                        
+                        
+                        
+                        <center><div class="row">
+                          <div class="column">
+                            <div class="card">
+                              
+                              <h6 style="color: black;">Every User needs to download the Application Form and Submit the Filled form.  Concerning Company Agent will contact you immediately. Your Application will be sanctioned only thereafter. (OtherWise You are not supposed to get the benefits of the insurance policy**)</h6>
+                              
+                              <a href="/{{data1.0}}" style="color: red;" download>DOWNLOAD</a>
+                             
+                            </div>
+                          </div>
+                        </div>
+                        
+                        </center>
+                        <br>
+                        <br>
+                        
+                       
+                        
+					</div>
+				</div>
+				<!-- //contact form -->
+			</div>
+			
+		</div>
+		
+	</section>
+	<script>
+		if ( window.history.replaceState ) {
+			window.history.replaceState( null, null, window.location.href );
+		}
+	</script>
+	<!-- //contact -->
+
+	
+
+	
+
+
+{% endblock %}

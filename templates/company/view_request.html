@@ -1,0 +1,120 @@
+
+{% extends 'com_header_footer.html' %}
+{% block view_request %}
+{% load static %}
+
+<!-- login -->
+
+<!-- banner-bottom -->
+
+<!-- //middle section --><!-- middle section -->
+
+<!-- //middle section -->
+<!-- services -->
+
+<!-- //services -->
+
+
+<div class="banner-w3ltext about-w3bnr">
+  <div class="container">
+      <h1 class="text-white text-center">
+          <a href="#">Home</a> / Insurance Application Status</h1>
+  </div>
+</div>
+
+<!-- stats section -->
+<div class="middlesection-agile py-5" style="background-color: white;">
+ 
+<div class="container-fluid py-xl-5 py-lg-3">
+  {% if msg %}
+<script>
+alert("{{msg}}");
+</script>
+<center> <h6 style="color: red;">{{msg}}</h6></center>
+ {% endif %}
+</div>
+    <div class="row">
+        
+       
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 90%;
+              margin-left: 70px;
+              border: #000000;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+    <table >
+            <tr style="background:#ff3c41">
+              <th>Sl No.</th>
+              <th>Customer Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Applicant Name</th>
+              <th>Contact No.</th>
+              <th>Policy Name</th>
+              <th>view Payments</th>
+              <th>Status</th>
+              <th colspan="4"><center>Update</center></th>
+            </tr>
+            {% for d in data1 %}
+            <tr>
+              <td>{{d.0}}</td><td>{{d.24}}</td><td>{{d.27}}</td><td>{{d.25}}</td><td>{{d.1}}</td><td>{{d.6}}</td><td>{{d.14}}</td><td><center><a href="/pay_history?appl_id={{d.0}}&u_id={{d.11}}" style="color:darkblue"><b>View Payments</b></a></center></td><td><b>{{d.12}}</b></td>
+              {% if d.12 == 'Applied' %}
+              <!-- <td><center><a href="/update_status?appl_id={{d.0}}&st=Approved" style="color: green;"><b>Approve</b></a></center></td> -->
+              <td colspan="2"><center><a href="/update_status?appl_id={{d.0}}&st=Processing" style="color: indigo;"><b>Processing</b></a></center></td>
+              <td colspan="2"><center><a href="/update_status?appl_id={{d.0}}&st=Rejected" style="color: red;"><b>Reject</b></a></center></td>
+              <!-- <td><center><label>Completed</label></center></td> -->
+              
+              {% endif %}
+
+              {% if d.12 == 'Processing' %}
+              <td colspan="2"><center><a href="/update_status?appl_id={{d.0}}&st=Approved" style="color: green;"><b>Approved</b></a></center></td>
+              <!-- <td><center><label style="color: indigo;">Processing</label></center></td> -->
+              <td colspan="2"><center><a href="/update_status?appl_id={{d.0}}&st=Rejected" style="color: red;"><b>Reject</b></a></center></td>
+              <!-- <td><center><label>Completed</label></center></td> -->
+              <!-- <td  style="color: red;"><a href="/update_status?appl_id={{d.0}}&st=Rejected" style="color: red;"><b>Completed</b></a></td> -->
+              
+              {% endif %}
+
+              {% if d.12 == 'Approved' %}
+               <!-- <!-- <td><center><label style="color: green;">Approved</label></center></td> -->
+              <!-- <!-- <td><center><label style="color: indigo;">Processing</label></center></td>  --> 
+              <td colspan="2"><center><a href="/update_status?appl_id={{d.0}}&st=Rejected" style="color: red;"><b>Reject</b></a></center></td>
+              <td colspan="2" style="color: red;"><a href="/update_status?appl_id={{d.0}}&st=Completed" style="color: red;"><b>Complete</b></a></td>
+              
+              {% endif %}
+
+              {% if d.12 == 'Rejected' %}
+              
+              <td colspan="4" style="color: red;"><center>Application Rejected</center></td>
+              {% endif %}
+
+              {% if d.12 == 'Completed' %}
+              
+              <td colspan="4" style="color: red;"><center>Completed</center></td>
+              {% endif %}
+
+            </tr>
+            {% endfor %}
+          </table>
+    </div>
+</div>
+
+<!-- //stats -->
+
+<!-- testimonials -->
+
+<!-- //testimonials -->
+{% endblock %}

@@ -1,0 +1,2 @@
+a=nobooking from dipx
+select * from patiet where tno in between 1 and a
